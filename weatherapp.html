@@ -27,17 +27,25 @@
             console.log(data); // contains the detailed and whole weather information 
             // becasue the div has span tag, we need to use textContent NOT value
             document.getElementById("cname").textContent = data.name;
+            document.getElementById("country").textContent = data.sys.country;
+            document.getElementById("sunrise").textContent = data.sys.sunrise;
+            document.getElementById("sunset").textContent = data.sys.sunset;
+
             document.getElementById("latitude").textContent = data.coord.lat;
             document.getElementById("longitude").textContent = data.coord.lon;
-            let max = document.getElementById("high-temp").value;
-            // it temperature is above 300, show hot weather icon
-            if(max >= 300)
+            // let max = document.getElementById("high-temp").value;
+            // // it temperature is above 300, show hot weather icon
+            // if(max >= 300)
                 document.getElementById("high-temp").textContent = data.main.temp_max;
                 //let image = https://openweathermap.org/img/wn/10d@2x.png;
             document.getElementById("low-temp").textContent = data.main.temp_min;
+            document.getElementById("clouds").textContent = data.clouds.all;
             document.getElementById("feels-like").textContent = data.main.feels_like;
+            document.getElementById("humid").textContent = data.main.humidity;
+            document.getElementById("pressure").textContent = data.main.pressure;
             document.getElementById("weather").textContent = data.weather[0].main;
             document.getElementById("descrip").textContent = data.weather[0].description;
+
 
             let myImage = data.weather[0].icon + ".png";
             document.getElementById("divImg").innerHTML = `<img src = 'http://openweathermap.org/img/w/${myImage}' alt='image here' />`;
@@ -46,23 +54,29 @@
     </script>
 </head>
 
-<body>
+<body >
 
-    <div class="container-fluid"> 
-        <h1> Whether or not Whether</h1>    
+    <div class="container-fluid" style ="background-color:aliceblue"> 
+        <h1> Good Weather or Bad Weather? </h1>    
         <input type="text" name ="cityname" id="cityname"/>
         <button class="btn btn-success" onclick="getWeather()"> Get Weather </button>
     
         <div >
             <h3> City </h3> <span id ="cname" > Name here </span> 
+            <h3> Country </h3> <span id ="country" class="bg-primary" style="color: white;" > country here </span> 
+            <h3> Sunrise </h3> <span id ="sunrise" class="bg-warning"> sunrise here </span> 
+            <h3> Sunset </h3> <span id ="sunset" > sunset here </span> 
             <h3> Latitude </h3> <span id ="latitude" > latitude here </span> 
             <h3> Longitude </h3> <span id ="longitude" > longitude here </span> 
-            <h3> High Temp</h3>  <span id ="high-temp" > high temp here</span>
+            <h3> High Temp</h3>  <span id ="high-temp" class ="bg-danger" style="color: white;"> high temp here</span>
             <h3> Low Temp </h3> <span id ="low-temp" > low  temp here</span>
-            <h3> Feels Like </h3> <span id="feels-like" > feels like temperature here</span>
+            <h3> Clouds </h3>  <span id ="clouds" > clouds here</span>
+            <h3> Feels Like </h3> <span id="feels-like" class="bg-light" style="color:blue"> feels like temperature here</span>
+            <h3> Humidity </h3> <span id="humid" > humidity here</span>
+            <h3> Pressure </h3> <span id="pressure" > pressure here</span>
             <h3> Description </h3> <span id="descrip"> description here </span>
-            <h3> Weather </h3> <span id ="weather" > weather here </span>
-            <div id="divImg"> Image here </div>
+            <h3> Weather </h3> <span id ="weather" class="bg-success" style="color: white;"> weather here </span>
+            <div id="divImg"> <mark> Image here </mark> </div>
             
         
     </div>
