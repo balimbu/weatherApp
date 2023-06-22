@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //document.write("Hello again! "); // writing to the web page and displaying it
+
+        function sayHello(){
+            console.log("hello!");
+        }
+        
+
+        function sayBye(){
+            console.log("say bye!")
+        }
+        // sayHello(); // function call
+        // sayBye(); // function call
+
+        // Add a delay
+        setTimeout(sayHello,3000); // set timeout for sayhello for 3k milliseconds
+        sayBye(); // function call
+
+        //getUserDetails(); // fetches the info from a remote server
+        //displayUserDetails(); // displays the fetched data
+
+        // call back --> function inside another function definition
+
+        function goodMorning(name, fun ){
+            console.log("Good Monrning! " + name);
+            fun(); // fun is a function here
+        }
+
+        function goodNight(){
+            console.log("Good Night!");
+        }
+
+        // you can pass a function as a paramater into another function
+        goodMorning("Jane", goodNight); // function call
+
+        // promises
+        code.then() // complicated when we have multiple promises to be met
+
+        // async - await
+        async function getDataFromRemoteServer(){
+            await fetch();
+        }
+
+
+    </script>
+</head>
+
+<body>
+    
+<h1> Hello !</h1>
+
+
+</body>
+</html>
